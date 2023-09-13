@@ -342,7 +342,6 @@ public class Vista extends javax.swing.JFrame {
     private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
         PanelNumero.setVisible(false);
         opc = "nombre";
-
         aux = " = ";
 
     }//GEN-LAST:event_NombreActionPerformed
@@ -351,6 +350,7 @@ public class Vista extends javax.swing.JFrame {
         PanelNumero.setVisible(false);
         opc = "domicilio";
         aux = " = ";
+
     }//GEN-LAST:event_DomicilioActionPerformed
 
     private void CiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CiudadActionPerformed
@@ -358,12 +358,14 @@ public class Vista extends javax.swing.JFrame {
         PanelNumero.setVisible(false);
         opc = "ciudad";
         aux = " = ";
+
     }//GEN-LAST:event_CiudadActionPerformed
 
     private void OficioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OficioActionPerformed
         PanelNumero.setVisible(false);
         opc = "oficio";
         aux = " = ";
+
     }//GEN-LAST:event_OficioActionPerformed
 
     private void Boton_PredicadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_PredicadoActionPerformed
@@ -419,26 +421,29 @@ public class Vista extends javax.swing.JFrame {
         String sql = "SELECT * FROM PERSONAS WHERE ";
         String auxInterfaz = Texto.getText();
 
-        if (MenorQue.isSelected()) {
-            aux = " < ";
+        if (!nControl.isSelected() && !Edad.isSelected()) {
+             aux = " = ";
             sql += opc + aux + "'" + auxInterfaz + "'";
-        } else if (MayorQue.isSelected()) {
-            aux = " > ";
-            sql += opc + aux + "'" + auxInterfaz + "'";
-        } else if (MenorIgualQue.isSelected()) {
-            aux = " <= ";
-            sql += opc + aux + "'" + auxInterfaz + "'";
-        } else if (MayorIgualQue.isSelected()) {
-            aux = " >= ";
-            sql += opc + aux + "'" + auxInterfaz + "'";
-        } else if (Diferente.isSelected()) {
-            aux = " <> ";
-            sql += opc + aux + "'" + auxInterfaz + "'";
-        } else if (Igual.isSelected()) {
-            aux = " = ";
-            sql += opc + aux + "'" + auxInterfaz + "'";
-        }
-
+        } else if (MenorQue.isSelected()) {
+                aux = " < ";
+                sql += opc + aux + "'" + auxInterfaz + "'";
+            } else if (MayorQue.isSelected()) {
+                aux = " > ";
+                sql += opc + aux + "'" + auxInterfaz + "'";
+            } else if (MenorIgualQue.isSelected()) {
+                aux = " <= ";
+                sql += opc + aux + "'" + auxInterfaz + "'";
+            } else if (MayorIgualQue.isSelected()) {
+                aux = " >= ";
+                sql += opc + aux + "'" + auxInterfaz + "'";
+            } else if (Diferente.isSelected()) {
+                aux = " <> ";
+                sql += opc + aux + "'" + auxInterfaz + "'";
+            } else if (Igual.isSelected()) {
+                aux = " = ";
+                sql += opc + aux + "'" + auxInterfaz + "'";
+            }
+        
         System.out.println(sql);
 
         try {
